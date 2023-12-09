@@ -1,0 +1,49 @@
+.container-section {
+  display: flex;
+  justify-content: space-between;
+  width: 1110px;
+  height: 572px;
+
+  &__left {
+    display: flex;
+    flex-wrap: wrap;
+    width: 825px;
+    justify-content: space-between;
+    align-content: space-between;
+  }
+}
+
+.section-d__symbol {
+  width: 104px;
+  height: 102px;
+  fill: #a775f1;
+  position: absolute;
+  z-index: 0;
+  top: 0px;
+  left: 356px;
+}
+
+@each $name in $names {
+  .section-#{$name} {
+    position: relative;
+    @include get-section-container-by-name($name);
+    &__image {
+      @include get-section-image-by-name($name);
+    }
+    &__full-name {
+      @include section-name();
+    }
+    &__verified-status {
+      @include section-verified-status();
+    }
+
+    &__opinion {
+      position: relative;
+      @include section-opinion();
+    }
+
+    &__story {
+      @include section-story();
+    }
+  }
+}

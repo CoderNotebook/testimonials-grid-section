@@ -1,0 +1,35 @@
+@media screen and (max-width: 1110px) {
+  body {
+    height: 200vh;
+  }
+
+  .container-section {
+    width: 327px;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__left {
+      flex-direction: column;
+      width: 327px;
+      height: 100%;
+    }
+
+    &__right {
+      width: 327px;
+      height: 100%;
+    }
+  }
+
+  .section-d__symbol {
+    left: 199px;
+  }
+
+  @each $name in $names {
+    .section-#{$name} {
+      margin-top: 24px;
+      @include get-section-container-mobile-by-name($name);
+    }
+  }
+}
